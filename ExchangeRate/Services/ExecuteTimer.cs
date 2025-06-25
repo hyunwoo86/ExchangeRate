@@ -28,7 +28,12 @@ namespace ExchangeRate.Services
                 _getExchangeRate.LoadHtml(_loadHomePage.FsullHtml);
                 string currentTime = _getExchangeRate.GetDate();
                 string systemTime = DateTime.Now.ToString("yyyyMMdd");
-                if (!currentTime.Equals(systemTime)) return;
+                if (!currentTime.Equals(systemTime))
+                {
+                    // 아직 날짜가 갱신 되지 않았음
+                    _logger.LogInfoWithCaller($"아직 날짜가 되지 않았습니다: {systemTime} / {currentTime}");
+                    return;
+                }
 
                 _countryExchangeCost.Clear();
 
