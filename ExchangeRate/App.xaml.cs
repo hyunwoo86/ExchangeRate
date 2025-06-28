@@ -1,8 +1,8 @@
 ﻿using ExchangeRate.Services;
+using ExchangeRate.Views;
 using Hardcodet.Wpf.TaskbarNotification;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Enrichers.WithCaller;
 using System.Drawing;
@@ -28,7 +28,7 @@ namespace ExchangeRate
                 .Enrich.WithCaller() // 이게 핵심
                 .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day,
                   outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Caller} {Message:lj}{NewLine}{Exception}")
-                .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Caller} {Message:lj}{NewLine}{Exception}")
+                //.WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Caller} {Message:lj}{NewLine}{Exception}")
                 .CreateLogger();
 
             // 1. DI 호스트 설정
@@ -41,6 +41,7 @@ namespace ExchangeRate
 
                     // View
                     services.AddSingleton<MainWindow>();
+                    services.AddSingleton<Mainpage>();
 
                     // Service
                     services.AddSingleton<LoadHomePage>();
@@ -79,6 +80,9 @@ namespace ExchangeRate
             _trayIcon.ContextMenu = contextMenu;
 
             _trayIcon.TrayMouseDoubleClick += (s, args) => ShowMainWindow();
+
+            var mainWindow = _host.Services.GetRequiredService<MainWindow>();
+            mainWindow.Show();
         }
 
         private void ShowMainWindow()

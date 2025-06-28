@@ -14,13 +14,16 @@ namespace ExchangeRate.Services
 
         public bool Load()
         {
+            var service = ChromeDriverService.CreateDefaultService();
+            service.HideCommandPromptWindow = true;  // ✅ CMD 창 숨김
+
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--headless");                  // 💡 창 안 뜨게 실행
             options.AddArgument("--disable-gpu");               // GPU 렌더링 비활성화
             options.AddArgument("--no-sandbox");                // (리눅스 안전 모드 해제용)
             //options.AddArgument("--window-size=1920,1080");     // 가상 화면 사이즈 설정
 
-            using var driver = new ChromeDriver(options);
+            using var driver = new ChromeDriver(service, options);
             driver.Navigate().GoToUrl("https://obank.kbstar.com/quics?page=C101423#loading");
             Thread.Sleep(7000);
 
