@@ -1,4 +1,6 @@
-﻿using ExchangeRate.Services;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using ExchangeRate.Common.Navigations;
+using ExchangeRate.Services;
 using ExchangeRate.Views;
 using Hardcodet.Wpf.TaskbarNotification;
 using Microsoft.Extensions.DependencyInjection;
@@ -42,6 +44,7 @@ namespace ExchangeRate
                     // View
                     services.AddSingleton<MainWindow>();
                     services.AddSingleton<Mainpage>();
+                    services.AddSingleton<VersionInfoPage>();
 
                     // Service
                     services.AddSingleton<LoadHomePage>();
@@ -83,6 +86,8 @@ namespace ExchangeRate
 
             var mainWindow = _host.Services.GetRequiredService<MainWindow>();
             mainWindow.Show();
+
+            WeakReferenceMessenger.Default.Send(new NavigationMessage(typeof(Mainpage)));
         }
 
         private void ShowMainWindow()

@@ -9,15 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="Hardcodet.Wpf.TaskbarNotification" Version="1.0.5" />
     <PackageReference Include="HtmlAgilityPack" Version="1.12.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.6" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.6" />
-    <PackageReference Include="Selenium.Support" Version="4.33.0" />
-    <PackageReference Include="Selenium.WebDriver" Version="4.33.0" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="137.0.7151.11900" />
+    <PackageReference Include="Selenium.Support" Version="4.34.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.34.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="138.0.7204.4900" />
     <PackageReference Include="Serilog.Enrichers.CallerInfo" Version="1.0.6" />
     <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
     <PackageReference Include="Serilog.Enrichers.Process" Version="3.0.0" />
