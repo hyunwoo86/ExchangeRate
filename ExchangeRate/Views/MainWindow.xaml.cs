@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using ExchangeRate.Common.Navigations;
-using ExchangeRate.Services;
 using ExchangeRate.Views;
 using System.Windows;
 using System.Windows.Controls;
