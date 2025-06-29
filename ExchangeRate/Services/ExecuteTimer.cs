@@ -43,11 +43,11 @@ namespace ExchangeRate.Services
                 _getExchangeRate.FindCost("JPY");
                 _countryExchangeCost.Add("JPY", _getExchangeRate.Cost * 0.01);
 
-                _getExchangeRate.FindCost("CNY");
-                _countryExchangeCost.Add("CNY", _getExchangeRate.Cost);
-
                 _getExchangeRate.FindCost("EUR");
                 _countryExchangeCost.Add("EUR", _getExchangeRate.Cost);
+
+                _getExchangeRate.FindCost("CNY");
+                _countryExchangeCost.Add("CNY", _getExchangeRate.Cost);
             }
 
             _logger.LogInfoWithCaller("ExecuteTimer 종료 됨");
