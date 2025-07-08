@@ -50,7 +50,7 @@ namespace ExchangeRate.Services
                 _countryExchangeCost.Add("CNY", _getExchangeRate.Cost);
             }
 
-            _logger.LogInfoWithCaller("ExecuteTimer 종료 됨");
+            _logger.LogInfoWithCaller("ExecuteTimer 종료 됨"); 
         }
     }
 }
