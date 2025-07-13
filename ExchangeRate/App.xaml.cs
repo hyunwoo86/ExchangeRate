@@ -84,10 +84,9 @@ namespace ExchangeRate
 
             _trayIcon.TrayMouseDoubleClick += (s, args) => ShowMainWindow();
 
-            var mainWindow = _host.Services.GetRequiredService<MainWindow>();
-            mainWindow.Show();
-
-            WeakReferenceMessenger.Default.Send(new NavigationMessage(typeof(Mainpage)));
+            //var mainWindow = _host.Services.GetRequiredService<MainWindow>();
+            //mainWindow.Show();
+            //WeakReferenceMessenger.Default.Send(new NavigationMessage(typeof(Mainpage)));
         }
 
         private void ShowMainWindow()

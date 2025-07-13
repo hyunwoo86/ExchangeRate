@@ -4,11 +4,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ExchangeRate.Views"
+      xmlns:common="clr-namespace:ExchangeRate.Common"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Mainpage"
       Background="LightGray">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -25,23 +25,54 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="2">
+            <!--<Grid Grid.Column="2">
                 <Button Content="Next"
                         Background="blue"
                         Foreground="White"
                         FontSize="20"
                         FontWeight="Bold"
                         Click="Button_Click"/>
-            </Grid>
+            </Grid>-->
         </Grid>
-        
+
         <Grid Grid.Row="1"
-              Background="Black">
-            <Label Content="Test..."
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   FontSize="100"
-                   Foreground="White"/>
+              Background="White">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <common:CountryInputControl Grid.Row="0"
+                                        Grid.Column="1" 
+                                        CountryName="USD"
+                                        CountryCost="{Binding CostUSD}" />
+
+            <common:CountryInputControl Grid.Row="1"
+                                        Grid.Column="1" 
+                                        CountryName="EUR"
+                                        CountryCost="{Binding CcstEUR}" />
+
+            <common:CountryInputControl Grid.Row="2"
+                                        Grid.Column="1" 
+                                        CountryName="JYP"
+                                        CountryCost="{Binding CostJYP}" />
+
+            <common:CountryInputControl Grid.Row="3"
+                                        Grid.Column="1" 
+                                        CountryName="CNY"
+                                        CountryCost="{Binding CostCNY   }" />
+
         </Grid>
 
         <Grid Grid.Row="2">
